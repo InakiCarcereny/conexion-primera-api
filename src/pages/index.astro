@@ -1,8 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import { Main } from '../components/Main.jsx';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="First conexion to API">
+	<main class="
+	text-white
+	font-bold
+	text-3xl">
+		<Main client:load/>
+	</main>
 	</Layout>
 
