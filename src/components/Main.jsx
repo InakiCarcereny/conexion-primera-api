@@ -12,6 +12,16 @@ export function Main () {
     .then (data => setCatFact(data.fact))
   }, [])
 
+  //useEffect(() => {
+  //  async function fetchCatFact() {
+  //    const res = await fetch(CAT_ENDPOINT)
+  //    const data = await res.json()
+  //    setCatFact(data.fact)
+  //  }
+
+  //  fetchCatFact()
+  //}, []) 
+
   return (
     <main className="flex flex-col gap-6">
       <h1>Cat Facts</h1>
