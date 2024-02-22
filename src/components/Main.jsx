@@ -1,38 +1,11 @@
-import { useEffect, useState } from "react";
-
-const CAT_ENDPOINT = 'https://catfact.ninja/fact'
-
-const CAT_ENDPOINT_IMAGE = 'https://cataas.com/cat/says/ramon?fontSize=50&fontColor=red&json=true'
-
-const CAT_IMG_PREFIX = 'https://cataas.com'
-
+import { CAT_IMG_PREFIX } from "../data/constantes.js";
+import { useCatFact } from "../hooks/useCatFact.js";
+import { useCatImage } from "../hooks/useCatImage.js";
 
 export function Main () {
 
-  const [catFact, setCatFact] = useState()
-  const [catImage, setCatImage] = useState()
-
-  useEffect(() => {
-    fetch (CAT_ENDPOINT)
-    .then (res => res.json())
-    .then (data => setCatFact(data.fact))
-  }, [])
-
-  useEffect (() => {
-    fetch (CAT_ENDPOINT_IMAGE)
-    .then (res => res.json())
-    .then (data => setCatImage(data.url))
-  },[])
-
-  //useEffect(() => {
-  //  async function fetchCatFact() {
-  //    const res = await fetch(CAT_ENDPOINT)
-  //    const data = await res.json()
-  //    setCatFact(data.fact)
-  //  }
-
-  //  fetchCatFact()
-  //}, []) 
+  const { catFact } = useCatFact()
+  const { catImage } = useCatImage()
 
   return (
     <main className="flex flex-col justify-center items-center gap-6 mt-6 text-white font-bold text-3xl">
